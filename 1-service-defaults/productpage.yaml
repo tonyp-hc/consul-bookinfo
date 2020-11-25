@@ -1,0 +1,70 @@
+##################################################################################################
+# Productpage services
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: productpage
+  labels:
+    app: productpage
+    service: productpage
+spec:
+  ports:
+  - port: 80 
+    name: http
+    targetPort: 9090
+  selector:
+    app: productpage
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: productpage
+  labels:
+    account: productpage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productpage-v1
+  labels:
+    app: productpage
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productpage
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: productpage
+        version: v1
+      annotations:
+        "consul.hashicorp.com/connect-inject": "true"
+        "consul.hashicorp.com/connect-service-upstreams": "bookinfo:9080"
+    spec:
+      serviceAccountName: productpage
+      containers:
+      - name: productpage
+        image: docker.io/istio/examples-bookinfo-productpage-v1:1.16.2
+        command: ["python", "productpage.py", "9090"]
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: REVIEWS_HOSTNAME
+          value: "127.0.0.1"
+        - name: RATINGS_HOSTNAME
+          value: "127.0.0.1"
+        - name: DETAILS_HOSTNAME
+          value: "127.0.0.1"
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {}
+---

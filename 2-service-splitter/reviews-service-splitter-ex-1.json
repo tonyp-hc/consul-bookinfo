@@ -1,0 +1,18 @@
+{
+  "kind": "service-splitter",
+  "name": "reviews",
+  "splits": [
+    {
+      "weight": 100,
+      "service_subset": "v1"
+    },
+    {
+      "weight": 0,
+      "service_subset": "v2"
+    },
+    {
+      "weight": 0,
+      "service_subset": "v3"
+    }
+  ]
+}
