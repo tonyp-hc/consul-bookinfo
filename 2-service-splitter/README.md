@@ -114,3 +114,70 @@ $ consul config write -<<EOF
 EOF
 Config entry written: service-splitter/reviews
 ```
+
+## Cleanup
+To remove the service splitter configuration, we can use the `consul config` subcommands, `list` and `delete`.
+
+If necessary, log into one of the consul nodes:
+```bash
+$ oc exec -it consul-a1b2c3 -- /bin/sh
+```
+
+And check for the config entries we have written:
+```bash
+$ consul config list -kind service-splitter
+reviews
+```
+
+Depending on what else you have worked on prior or during this exercise, there might be others listed.
+
+This can be deleted with the `consul config delete` command:
+```bash
+$ consul config delete -kind service-splitter -name reviews
+Config entry deleted: service-splitter/reviews
+```
+
+Alternatively, this can also be done with Consul's `/config` API endpoint (see [documentation](https://www.consul.io/api-docs/config)):
+Sample `GET` request to `/config/:kind/:name`
+```bash
+$ curl \
+ --request GET \
+ http://127.0.0.1:8500/v1/config/service-splitter/reviews
+```
+
+Sample response
+```bash
+{
+  "Kind": "service-splitter",
+  "Name": "reviews",
+  "Splits": [
+    {
+      "Weight": 100,
+      "ServiceSubset": "v1"
+    },
+    {
+      "Weight": 0,
+      "ServiceSubset": "v2"
+    },
+    {
+      "Weight": 0,
+      "ServiceSubset": "v3"
+    }
+  ],
+  "Namespace": "default",
+  "CreateIndex": 1149279,
+  "ModifyIndex": 1149279
+}
+```
+
+Sample `DELETE` request to `/config/:kind/:name`
+```bash
+$ curl \
+ --request DELETE \
+ http://127.0.0.1:8500/v1/config/service-splitter/reviews
+```
+
+Sample response
+```bash
+{}
+```
