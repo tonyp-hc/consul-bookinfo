@@ -138,6 +138,7 @@ Config entry deleted: service-splitter/reviews
 ```
 
 Alternatively, this can also be done with Consul's `/config` API endpoint (see [documentation](https://www.consul.io/api-docs/config)):
+
 Sample `GET` request to `/config/:kind/:name`
 ```bash
 $ curl \
