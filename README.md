@@ -1,7 +1,7 @@
 # consul-bookinfo
 
 ## Overview
-These examples deploy Istio's [Bookinfo application](https://istio.io/latest/docs/examples/bookinfo/) and then adapt it to demonstrate Consul's [L7 traffic management](https://www.consul.io/docs/connect/l7-traffic) functionality.
+These examples deploy Istio's [Bookinfo application](https://istio.io/latest/docs/examples/bookinfo/) and then adapt it to demonstrate Consul's [Service Mesh](https://www.consul.io/use-cases/multi-platform-service-mesh) functionality.
 
 This deploys the following microservices:
 - **productpage**: calls details and reviews services to populate the pages
