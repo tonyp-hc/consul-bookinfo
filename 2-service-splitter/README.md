@@ -8,6 +8,12 @@ This example assumes that Bookinfo and Consul are both deployed following the in
 
 The service-resolver and service-splitter examples below are also available as JSON files in this directory.
 
+## Examples
+If necessary, log into one of the consul nodes:
+```bash
+$ oc exec -it consul-a1b2c3 -- /bin/sh
+```
+
 ```bash
 $ consul config write -<<EOF
 {
