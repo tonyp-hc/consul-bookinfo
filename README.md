@@ -30,6 +30,7 @@ docker.io/istio/examples-bookinfo-reviews-v2:1.16.2
 docker.io/istio/examples-bookinfo-reviews-v3:1.16.2
 ```
 
+All examples are tested with Consul 1.9.0 but many will also work with Consul 1.6.0+
 
 ## Repository Structure
 There are several directories included in this repo and additional examples will be included over time. If an example expects certain prerequisities or dependencies, it will define those. 
@@ -40,9 +41,13 @@ consul-bookinfo
 ├── 0-default
 ├── 1-service-defaults
 ├── 2-service-splitter
+├── 3-intentions
+├── 4-service-router
 └── README.md
 ```
 
-- `0-default`: original bookinfo application [[github](https://github.com/istio/istio/blob/master/samples/bookinfo/platform/kube/bookinfo.yaml)]
-- `1-service-defaults`: baseline bookinfo deployment for consul (including service-default and service-router configuration)
-- `2-service-splitter`: extend `1-service-defaults` with consul service-splitter to weight traffic between reviews services
+- [0-default](https://github.com/tonyp-hc/consul-bookinfo/tree/main/0-default): original bookinfo application [[github](https://github.com/istio/istio/blob/master/samples/bookinfo/platform/kube/bookinfo.yaml)]
+- [1-service-defaults](https://github.com/tonyp-hc/consul-bookinfo/tree/main/1-service-defaults): baseline bookinfo deployment for consul (including service-default and service-router configuration)
+- [2-service-splitter](https://github.com/tonyp-hc/consul-bookinfo/tree/main/2-service-splitter): extend `1-service-defaults` with consul service-splitter to weight traffic between reviews services
+- [3-intentions](https://github.com/tonyp-hc/consul-bookinfo/tree/main/3-intentions): authorize connectivity between service mesh applications without redeployments using Consul Intentions 
+- [4-service-router](https://github.com/tonyp-hc/consul-bookinfo/tree/main/4-service-router): extend `1-service-defaults` to route traffic based on L7 data like HTTP headers
