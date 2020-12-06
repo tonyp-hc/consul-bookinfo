@@ -1,6 +1,11 @@
 # consul-bookinfo
 ## Deploy consul-bookinfo
 
+### Architecture Diagram
+![bookinfo application](images/bookinfo-app.png)
+
+
+### Deployment
 ```bash
 # working out of consul-bookinfo/1-service-defaults/ 
 
