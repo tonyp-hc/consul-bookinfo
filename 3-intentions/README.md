@@ -6,7 +6,7 @@ This example assumes that Bookinfo and Consul are both deployed following the in
 ### Application Architecture 
 ![bookinfo application](../1-service-defaults/images/bookinfo-app.png)
 
-### Consul Intentions 
+## Consul Intentions 
 Intentions allow you to segment routing much like traditional firewalls but they rely on the services' logical names (for example "reviews" or "productpage") rather than the IP addresses of each individual service instance.
 
 This is incredibly important as we route between dynamic, containerized services. The IP address can change frequently and might even overlap across clusters. Intentions are enforced on inbound connections or requests by the proxy or within a natively integrated application. 

@@ -5,7 +5,7 @@
 ![bookinfo application](images/bookinfo-app.png)
 
 
-### Deployment
+## Deployment
 ```bash
 # working out of consul-bookinfo/1-service-defaults/ 
 
