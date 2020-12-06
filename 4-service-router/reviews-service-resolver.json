@@ -1,0 +1,16 @@
+{
+  "kind": "service-resolver",
+  "name": "reviews",
+  "defaultsubset": "v1",
+  "subsets": {
+    "v1": {
+      "filter": "Service.Meta.version == v1"
+    },
+    "v2": {
+      "filter": "Service.Meta.version == v2"
+    },
+    "v3": {
+      "filter": "Service.Meta.version == v3"
+    }
+  }
+}
