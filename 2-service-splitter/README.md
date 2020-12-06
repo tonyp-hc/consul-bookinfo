@@ -1,12 +1,12 @@
-# consul-bookinfo
-## Split reviews microservice traffic by version 
+# Consul Service Splitter 
+A splitter config entry allows users to distribute incoming requests across different subsets of a single service (like during staged canary rollouts), or perhaps across different services (like during a v2 rewrite or other type of codebase migration).
 
 This example assumes that Bookinfo and Consul are both deployed following the instructions in `../1-service-defaults`.
 
 ### Application Architecture 
 ![bookinfo application](../1-service-defaults/images/bookinfo-app.png)
 
-The service-resolver and service-splitter examples below are also available as JSON files in this directory.
+The `service-resolver` and `service-splitter` examples below are also available as JSON files in this directory.
 
 ## Examples
 If necessary, log into one of the consul nodes:

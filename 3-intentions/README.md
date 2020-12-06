@@ -1,18 +1,16 @@
-# consul-bookinfo
-## restrict approved service communication with Consul Intentions
-
-This example assumes that Bookinfo and Consul are both deployed following the instructions in `../1-service-defaults`.
-
-### Application Architecture 
-![bookinfo application](../1-service-defaults/images/bookinfo-app.png)
-
-## Consul Intentions 
+# Consul Intentions
 Intentions allow you to segment routing much like traditional firewalls but they rely on the services' logical names (for example "reviews" or "productpage") rather than the IP addresses of each individual service instance.
 
 This is incredibly important as we route between dynamic, containerized services. The IP address can change frequently and might even overlap across clusters. Intentions are enforced on inbound connections or requests by the proxy or within a natively integrated application. 
 
 **NOTE:** changing intentions does not affect existing connections. A new connection must be established to see the effects of a changed intention.
 
+This example assumes that Bookinfo and Consul are both deployed following the instructions in `../1-service-defaults`.
+
+### Application Architecture 
+![bookinfo application](../1-service-defaults/images/bookinfo-app.png)
+
+## Intention Types 
 Depending upon the protocol in use by the destination service, you can define intentions to control Connect traffic authorization either at networking layer 4 (e.g. TCP) and networking layer 7 (e.g. HTTP):
 
 - **Identity-based (L4):** Only require awareness of the TLS handshake that wraps the TCP connection. These rely on the identites encoded within the TLS certificate and provide coarse allow/deny access controls between pairs of services.

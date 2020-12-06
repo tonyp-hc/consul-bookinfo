@@ -1,6 +1,6 @@
-# consul-bookinfo
-## Deploy consul-bookinfo
-
+# Consul Bookinfo 
+We will deploy a modified configuration of the bookinfo application to function within Consul's Service Mesh. The application images are all the same but we will make some modifications to their deployment YAMLs.
+ 
 ### Application Architecture 
 ![bookinfo application](images/bookinfo-app.png)
 
