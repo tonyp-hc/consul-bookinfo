@@ -1,7 +1,7 @@
 # consul-bookinfo
 ## Deploy consul-bookinfo
 
-### Architecture Diagram
+### Application Architecture 
 ![bookinfo application](images/bookinfo-app.png)
 
 

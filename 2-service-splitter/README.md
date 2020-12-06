@@ -3,6 +3,9 @@
 
 This example assumes that Bookinfo and Consul are both deployed following the instructions in `../1-service-defaults`.
 
+### Application Architecture 
+![bookinfo application](../1-service-defaults/images/bookinfo-app.png)
+
 The service-resolver and service-splitter examples below are also available as JSON files in this directory.
 
 ```bash
