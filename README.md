@@ -43,6 +43,7 @@ consul-bookinfo
 ├── 2-service-splitter
 ├── 3-intentions
 ├── 4-service-router
+├── 5-k8s-namespaces 
 └── README.md
 ```
 
@@ -51,3 +52,4 @@ consul-bookinfo
 - [2-service-splitter](https://github.com/tonyp-hc/consul-bookinfo/tree/main/2-service-splitter): extend `1-service-defaults` with consul service-splitter to weight traffic between reviews services
 - [3-intentions](https://github.com/tonyp-hc/consul-bookinfo/tree/main/3-intentions): authorize connectivity between service mesh applications without redeployments using Consul Intentions 
 - [4-service-router](https://github.com/tonyp-hc/consul-bookinfo/tree/main/4-service-router): extend `1-service-defaults` to route traffic based on L7 data like HTTP headers
+- [5-k8s-namespaces](https://github.com/tonyp-hc/consul-bookinfo/tree/main/5-k8s-namespaces): distinguish between Consul and K8s namespaces 
