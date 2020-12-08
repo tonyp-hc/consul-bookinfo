@@ -165,6 +165,23 @@ Routes = [
   {
     Match {
       HTTP {
+        Header = [
+          {
+            Name  = "end-user"
+            Exact = "bob"
+          },
+        ],
+        PathPrefix = "/reviews"
+      }
+    }
+    Destination {
+      Service       = "reviews"
+      ServiceSubset = "v2"
+    }
+  },
+  {
+    Match {
+      HTTP {
         PathPrefix = "/reviews"
       }
     }
