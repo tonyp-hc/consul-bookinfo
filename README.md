@@ -44,6 +44,7 @@ consul-bookinfo
 ├── 3-intentions
 ├── 4-service-router
 ├── 5-k8s-namespaces 
+├── 6-consul-namespaces 
 └── README.md
 ```
 
@@ -53,3 +54,4 @@ consul-bookinfo
 - [3-intentions](https://github.com/tonyp-hc/consul-bookinfo/tree/main/3-intentions): authorize connectivity between service mesh applications without redeployments using Consul Intentions 
 - [4-service-router](https://github.com/tonyp-hc/consul-bookinfo/tree/main/4-service-router): extend `1-service-defaults` to route traffic based on L7 data like HTTP headers
 - [5-k8s-namespaces](https://github.com/tonyp-hc/consul-bookinfo/tree/main/5-k8s-namespaces): distinguish between Consul and K8s namespaces 
+- [6-consul-namespaces](https://github.com/tonyp-hc/consul-bookinfo/tree/main/6-consul-namespaces): set up Consul Enterprise namespaces and mirror K8s namespaces into Consul Enterprise 
