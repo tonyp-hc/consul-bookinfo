@@ -143,3 +143,43 @@ Visit `<EXTERNAL_IP>/productpage` and you should see a page like the following:
 ![default bookinfo deployment with consul](images/consul-bookinfo-default.png)
 
 Refreshing the page will alternate between reviews services (no stars, black stars, red stars). 
+
+
+## Cleanup
+
+To remove everything we just configured, run the following:
+
+First, remove the consul configuration:
+```bash
+$ oc exec -it consul-server-0 -- consul config delete -kind service-router -name bookinfo
+
+$ for app in bookinfo details productpage ratings reviews; do oc exec -it consul-server-0 -- consul config delete -kind service-defaults -name ${app}; done
+Config entry deleted: service-defaults/bookinfo
+Config entry deleted: service-defaults/productpage
+Config entry deleted: service-defaults/ratings
+Config entry deleted: service-defaults/reviews
+```
+
+Next, delete the bookinfo app:
+```bash
+$ oc delete -f ./
+serviceaccount "details" deleted
+deployment.apps "details-v1" deleted
+service "productpage" deleted
+serviceaccount "productpage" deleted
+deployment.apps "productpage-v1" deleted
+serviceaccount "ratings" deleted
+deployment.apps "ratings-v1" deleted
+serviceaccount "reviews" deleted
+deployment.apps "reviews-v1" deleted
+deployment.apps "reviews-v2" deleted
+deployment.apps "reviews-v3" deleted
+configmap "reviews" deleted
+```
+
+If you look for the bookinfo apps, you should now see the following:
+
+```bash
+$ oc get pods -l 'app in (details,reviews,ratings,productpage)'
+No resources found in consul namespace.
+```
